@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block head %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'accounts/style1.css' %}">
+    <title>Register</title>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container jumbotron">
+    <h1>Register Here</h1>
+    <!-- Form order is changing upon reloading
+    #goto forms.py and check fields variable-->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }} 
+        <button type="submit" class="btn btn-success">Register</button>
+    </form>
+
+</div>
+
+{% endblock %}

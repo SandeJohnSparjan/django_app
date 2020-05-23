@@ -1,0 +1,19 @@
+<!--Registering the base.html file-->
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- overwriting content in base.html file-->
+    {% block head %}
+    <meta charset="UTF-8">
+    <title>Home</title>
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+    <h1>OldHome</h1>
+    {% endblock %}
+
+</body>
+</html>

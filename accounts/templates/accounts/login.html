@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<!-- adding stylesheet by loading static files -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'accounts/style1.css' %}">
+<title>Login</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="container jumbotron" >
+    <h1>Welcome</h1>
+    <p>Login Here!!</p>
+    <form method="post">
+        <!-- To check the the values entered are secure -->
+        {% csrf_token %}
+        <!-- form as paragraph(login and password) -->
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Login</button>
+    </form>
+</div>
+{% endblock %}

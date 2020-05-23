@@ -1,0 +1,75 @@
+<!-- Base file to be included in all the template files -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- adding stylesheet by loading static files -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/style1.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- creating ginger tooth head block-->
+    {% block head %}
+    <title>Base</title>
+    {% endblock %}
+</head>
+<body>
+<br>
+    <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header ">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+              <!--bringing from HomeApp-->
+            <a class="navbar-brand" href="{% url 'home:accounty' %}">Accounty</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+             {% if user.is_authenticated %}
+              <ul class="nav navbar-nav">
+                    <!--Removing Hardcoded URLS and using ginder coding-->
+                  <li><a href="{% url 'accounts:view_profile' %}">Profile</a></li>
+                  <li><a href="{% url 'accounts:change_password' %}">Change Password</a></li>
+                  <li><a href="{% url 'accounts:edit_profile' %}">Edit Profile</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/accounts/logout">Logout</a></li>
+              </ul>
+
+
+             {% else %}
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="/accounts/reset-password/">Reset Password</a></li>
+                  <li><a href="/accounts/login/">Login</a></li>
+                  <li><a href="/accounts/register/">Register</a></li>
+            </ul>
+              {% endif %}
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+
+  </div>
+</nav>
+        <br>
+    </div><!-- container -->
+
+    {% block body %}
+    <h1>Base</h1>
+    {% endblock%}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'accounts/style1.css' %}">
+
+<title>Profile</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="container jumbotron">
+    <h1>Profile</h1>
+    <span>Hello , </span>{{ user.first_name }} {{ user.last_name }}
+    <br>
+    <span>Your Email: {{ user.email }}</span>
+    <p>Description: {{user.userprofile.description}}</p>
+    {% if user.userprofile.image %}
+    <img src={{ user.userprofile.image.url }} width="240">
+    {% endif %}
+</div>
+{% endblock %}
